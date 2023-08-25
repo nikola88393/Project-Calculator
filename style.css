@@ -10,13 +10,14 @@ body{
 .container{
     border: 1px solid #aaaaaa;
     max-width: 412px;
-    padding: 5px;
-    padding-bottom: 0px;
+    padding: 10px;
+    padding-bottom: 5px;
     border-radius: 10px;
     background-color: #f0f0f0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
 }
 button {
+    cursor: pointer;
     height: 100px;
     width: 100px;  
     padding: 0px;
@@ -27,7 +28,7 @@ button {
     border: none;
     color: #333333;
     background-color: #e0e0e0 ;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);    
 }
 .add,
 .subtract,
@@ -46,10 +47,16 @@ button {
     width:204px ;
 }
 .displayContainer{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 80px;
+    color: #333333;
     border: 1px solid #cccccc;
     background-color: #ffffff;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     border-radius: 10px;
     height: 100px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
 }
