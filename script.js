@@ -28,12 +28,15 @@ function operate(num1, num2, operator){
 function add(a, b){
     return parseFloat(a) + parseFloat(b);
 }
+
 function subtract(a, b){
     return parseFloat(a) - parseFloat(b);
-}   
+}  
+
 function multiply(a, b){
     return parseFloat(a) * parseFloat(b);
 }
+
 function divide(a, b){
     let result = parseFloat(a) / parseFloat(b);
     if (result % 1 === 0) {
@@ -56,7 +59,9 @@ function populateDisplay(){
     const equals = document.querySelector('.equals');
     const changeSign = document.querySelector('.negativeToPositive');
     const clear = document.querySelector('.clear');
+    const dot = document.querySelector('.dot');
     let num1 = null, num2 = null, Operator = null;
+    
     digits.forEach(digit => {
         digit.addEventListener('click', function() {
             if(num1 !== null && num2 !== null){
@@ -70,6 +75,7 @@ function populateDisplay(){
             }
         });
     });
+
     operators.forEach(operator =>{
         operator.addEventListener('click', function(){
             if(operator.textContent === '%'){
@@ -86,6 +92,11 @@ function populateDisplay(){
                 num1 = null;
                 Operator = null;
             }
+            else if(operator.textContent === '.'){
+                if(display.textContent.indexOf('.') === -1){
+                    display.textContent += '.';
+                }
+            }
             else if(num1 !== null && num2 === null){
                 num2 = display.textContent;
                 display.textContent = operate(num1, num2, Operator);
@@ -100,6 +111,7 @@ function populateDisplay(){
             
         });
     });
+
     equals.addEventListener('click', function(){
         if(num1 !== null){
             num2 = display.textContent;
@@ -107,21 +119,20 @@ function populateDisplay(){
             num1 = display.textContent;
         }
     });
+
     clear.addEventListener('click', function(){
         display.textContent = null;
         num1 = null;
         num2 = null;
         Operator = null;
     })
+
     changeSign.addEventListener('click', function(){
         if(display.textContent === null){
             display.textContent = '-' + display.textContent;
         }
     })
 }
-// 1 Create precentage method
-// 2 create sign change method 
-// 3 find a way to make the coma work
 
 populateDisplay();
 

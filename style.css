@@ -44,7 +44,7 @@ button {
 .clear,
 .percentage,
 .negativeToPositive{
-    background-color: #d1d1d1;
+    background-color: #c0c0c0;
 }
 
 .zero{
@@ -65,4 +65,4 @@ button {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
     overflow: hidden;
 }
-/* Base Styles */
+
