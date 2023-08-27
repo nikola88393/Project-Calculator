@@ -12,7 +12,6 @@ body{
 .container{
     border: 1px solid #aaaaaa;
     padding: 10px;
-    max-width: 412px;
     padding-bottom: 5px;
     border-radius: 10px;
     background-color: #f0f0f0;
@@ -22,7 +21,6 @@ button {
     cursor: pointer;
     height: 100px;
     width: 100px;  
-    padding: 0px;
     margin:0px;
     margin-bottom: 4px;
     border-radius: 10px;
@@ -67,3 +65,4 @@ button {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
     overflow: hidden;
 }
+/* Base Styles */
