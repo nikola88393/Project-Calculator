@@ -17,6 +17,9 @@ function operate(num1, num2, operator){
      else if(operator === '%'){
         return precentage(num1);
      }
+     else if(operator === '+/-'){
+        return num1 * (-1);
+     }
      else{
         return "ERROR!";
      }
@@ -71,6 +74,13 @@ function populateDisplay(){
         operator.addEventListener('click', function(){
             if(operator.textContent === '%'){
                 Operator = '%';
+                num1 = display.textContent;
+                display.textContent = operate(num1, num2, Operator);
+                num1 = null;
+                Operator = null;
+            }
+            else if(operator.textContent === "+/-"){
+                Operator = "+/-";
                 num1 = display.textContent;
                 display.textContent = operate(num1, num2, Operator);
                 num1 = null;
