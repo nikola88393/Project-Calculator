@@ -14,23 +14,36 @@ function operate(num1, num2, operator){
      else if(operator === '/'){
         return divide(num1, num2);
      }
+     else if(operator === '%'){
+        return precentage(num1);
+     }
      else{
-        return "Invalid operator";
+        return "ERROR!";
      }
 }
 
 function add(a, b){
-    return parseInt(a) + parseInt(b);
+    return parseFloat(a) + parseFloat(b);
 }
 function subtract(a, b){
-    return parseInt(a) - parseInt(b);
+    return parseFloat(a) - parseFloat(b);
 }   
 function multiply(a, b){
-    return parseInt(a) * parseInt(b);
+    return parseFloat(a) * parseFloat(b);
 }
 function divide(a, b){
-    let x = parseInt(a) / parseInt(b);
-    return x.toPrecision(7);
+    let result = parseFloat(a) / parseFloat(b);
+    if (result % 1 === 0) {
+        // If there's no remainder, return the number as is
+        return result;
+    } else {
+        // If there's a remainder, round to 7 dcimals
+        return result.toFixed(6);
+    }
+}
+
+function precentage(a){
+    return a/100;
 }
 
 function populateDisplay(){
@@ -43,23 +56,34 @@ function populateDisplay(){
     let num1 = null, num2 = null, Operator = null;
     digits.forEach(digit => {
         digit.addEventListener('click', function() {
-            if(num1 !== null){
+            if(num1 !== null && num2 !== null){
+                num1 = display.textContent;
+                num2 = null;
                 display.textContent = null;
+                display.textContent += digit.textContent;
             }
-            display.textContent += digit.textContent;
+            else{
+                display.textContent += digit.textContent;
+            }
         });
     });
     operators.forEach(operator =>{
         operator.addEventListener('click', function(){
-            if(num1 !== null && num2 === null){
+            if(operator.textContent === '%'){
+                Operator = '%';
+                num1 = display.textContent;
+                display.textContent = operate(num1, num2, Operator);
+                num1 = null;
+                Operator = null;
+            }
+            else if(num1 !== null && num2 === null){
                 num2 = display.textContent;
                 display.textContent = operate(num1, num2, Operator);
-                num1 = display.textContent;
-                num2 = null;
                 Operator = operator.textContent;
             }
             else{
                 num1 = display.textContent;
+                num2 = null;
                 display.textContent = null;
                 Operator = operator.textContent;
             }
